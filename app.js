@@ -1,12 +1,12 @@
 (() => {
-  const labels = ['点击，看清这一份认真','点击，让目光从容回应','点击，看见每一份成长'];
+  const labels = ['点击戴上万里路','点击戴上万里路','点击戴上万里路'];
   document.querySelectorAll('.focus-toggle').forEach((button,index) => {
     button.addEventListener('click', () => {
       const scene=button.closest('.vision-scene');
       const clear=scene.classList.toggle('is-clear');
       button.setAttribute('aria-pressed',String(clear));
-      button.querySelector('span').textContent=clear?'已切换清晰视野 · 点击复原':labels[index];
-      scene.querySelector('.scene-caption').textContent=clear?'视觉概念示意 · 非实际镜片效果':'点击眼镜，切换视觉示意';
+      button.querySelector('span').textContent=clear?'点击摘下眼镜':(labels[index]||'点击戴上万里路');
+      const caption=scene.querySelector('.scene-caption');if(caption)caption.textContent=clear?'点击眼镜可复原':'点击眼镜看看';
     });
   });
   const progress=document.getElementById('progress'),percent=document.getElementById('percent');
